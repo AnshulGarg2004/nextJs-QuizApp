@@ -298,13 +298,13 @@ body {
 }
 
 .info-card .info-label {
-  font-size: 0.85rem;
+  font-size: 15px;
   margin-right: 3px;
   color: var(--muted);
 }
 
 .info-card .info-value {
-  font-size: 1.4rem;
+  font-size: 15px;
   font-weight: 700;
   margin-left: 3px;
 }
@@ -366,9 +366,17 @@ body {
 
 .panel-subtitle {
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 30px;
   color: var(--muted);
   letter-spacing: 1.5px;
+}
+
+.review-heading i {
+  margin-right: 10px;
+}
+
+.ans-review {
+  font-size: 20px;
 }
 
 .panel-header h3 {
@@ -476,6 +484,7 @@ body {
 .btn {
   position: relative;
   padding: 16px 26px;
+  margin-right: 10px;
   border-radius: 16px;
   border: none;
   cursor: pointer;
@@ -608,6 +617,8 @@ body {
 
 .answers-container.vibrant .answer-option {
   position: relative;
+  display: flex;
+  align-items: center;
   padding: 18px 20px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -632,21 +643,29 @@ body {
 .answer-letter {
   width: 42px;
   height: 42px;
-  border-radius: 14px;
+  margin: 5px;
+  text-align: center;
+  border-radius: 15px;
   background: rgba(124, 93, 255, 0.2);
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
+
+}
+
+.answer-text {
+  flex: 1;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .answer-option.selected .answer-letter {
   background: linear-gradient(135deg, #7c5dff, #ff82d2);
 }
 
-.answer-text {
-  flex: 1;
-  font-size: 1rem;
-}
+
 
 .answer-indicator {
   width: 18px;
@@ -658,6 +677,10 @@ body {
 .answer-option.selected .answer-indicator {
   background: linear-gradient(135deg, #7c5dff, #ff82d2);
   box-shadow: 0 0 10px rgba(124, 93, 255, 0.7);
+}
+
+.question-number {
+  margin-right: 10px;
 }
 
 .quiz-controls.split {
@@ -830,6 +853,10 @@ body {
   margin-bottom: 24px;
 }
 
+.stat-item i {
+    margin-right: 8px; 
+}
+
 .score-circle.neon-ring {
   width: 140px;
   height: 140px;
@@ -837,18 +864,23 @@ body {
   background: linear-gradient(135deg, rgba(124, 93, 255, 0.25), rgba(255, 139, 213, 0.25));
   border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .score-circle.neon-ring span:first-child {
-  font-size: 2.6rem;
+  font-size: 50px;
+  font-weight: 700;
 }
 
 .score-context {
   flex: 1;
 }
+
+.score-total {
+  font-size: 30px;
+  font-weight: 500;
+  }
 
 .result-stats.futuristic {
   display: flex;
@@ -856,6 +888,8 @@ body {
   flex-wrap: wrap;
   margin: 24px 0 32px;
 }
+
+
 
 .results-side {
   display: flex;
@@ -945,11 +979,22 @@ body {
   background: rgba(255, 199, 95, 0.08);
 }
 
+.review-answer {
+  display: flex;
+}
+
 .review-answers .review-answer {
   background: rgba(255, 255, 255, 0.05);
   margin: 8px 0;
+  padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
+}
+
+.tick, .cross {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .toast {

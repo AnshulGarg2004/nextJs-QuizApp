@@ -58,7 +58,7 @@ export function InlineDropdown({
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         className={cn(
-          "flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/5 px-4 py-4 text-left text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur transition focus:border-white/40 focus:outline-none focus:ring-2 focus:ring-sky-400/40",
+          "flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/5 px-10 py-4 text-left text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur transition focus:border-white/40 focus:outline-none focus:ring-2 focus:ring-sky-400/40",
         )}
       >
         <span className="flex items-center gap-3">

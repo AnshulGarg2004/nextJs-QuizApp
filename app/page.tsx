@@ -654,9 +654,6 @@ export default function QuizApp() {
           <div className="results-grid">
             <div className={resultsContainerClass}>
               <div className="results-header">
-                <div id="results-icon" className="results-icon">
-                  <i className={resultsMeta.icon} />
-                </div>
                 <h2 id="results-title">Quiz Complete!</h2>
               </div>
 
@@ -682,7 +679,7 @@ export default function QuizApp() {
 
               <div className="result-stats futuristic">
                 <div className="stat-item correct">
-                  <i className="fas fa-check-circle" />
+                  <i className="fas fa-check-circle " />
                   <span>{score} Correct</span>
                 </div>
                 <div className="stat-item incorrect">
@@ -693,7 +690,7 @@ export default function QuizApp() {
                 </div>
                 {unansweredCount > 0 && (
                   <div className="stat-item unanswered">
-                    <i className="fas fa-question-circle" />
+                    <i className="fas fa-question-circle " />
                     <span>{unansweredCount} Unanswered</span>
                   </div>
                 )}
@@ -734,10 +731,11 @@ export default function QuizApp() {
         <section id="review-screen" className={`screen ${screen === "review" ? "active" : ""}`}>
           <div className="review-stack glass-panel">
             <div className="review-header-row">
-              <div>
+              <div className="review-heading">
                 <p className="panel-subtitle">Deep dive</p>
                 <h3>
-                  <i className="fas fa-clipboard-list" /> Answer Review
+                  <i className="fas fa-clipboard-list " />
+                  <span className="ans-review">Answer Review</span>
                 </h3>
               </div>
               <button
@@ -798,9 +796,9 @@ export default function QuizApp() {
                           <div key={`${index}-${letter}`} className={classes}>
                             <span className="answer-letter">{letter.toUpperCase()}</span>
                             <span className="answer-text">{value}</span>
-                            {letter === question.correctAnswer && <i className="fas fa-check" />}
+                            {letter === question.correctAnswer && <i className="fas fa-check tick" />}
                             {letter === userAnswer && letter !== question.correctAnswer && (
-                              <i className="fas fa-times" />
+                              <i className=" fas fa-times cross" />
                             )}
                           </div>
                         );
