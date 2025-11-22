@@ -409,10 +409,12 @@ export default function QuizApp() {
               <div className="hero-highlight-grid">
                 {heroHighlights.map((highlight) => (
                   <div key={highlight.title} className="highlight-card">
-                    <span className="highlight-icon">
+                    <div className="icon">
+                      <span className="highlight-icon">
                       <i className={highlight.icon} />
                     </span>
-                    <div>
+                    </div>
+                    <div className="content">
                       <p className="highlight-title">{highlight.title}</p>
                       <p className="highlight-desc">{highlight.desc}</p>
                     </div>
