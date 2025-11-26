@@ -280,9 +280,10 @@ export default function QuizApp() {
   }, []);
 
   const handleThemeToggle = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-    const emoji = theme === "light" ? "🌙" : "☀️";
-    const name = theme === "light" ? "Dark" : "Light";
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    const emoji = newTheme === "dark" ? "🌙" : "☀️";
+    const name = newTheme === "dark" ? "Dark" : "Light";
     showToast(`${emoji} Switched to ${name} theme!`, 2000);
   };
 

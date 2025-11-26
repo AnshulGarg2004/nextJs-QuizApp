@@ -58,7 +58,7 @@ export function InlineDropdown({
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         className={cn(
-          "flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/5 px-10 py-4 text-left text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] backdrop-blur transition focus:border-white/40 focus:outline-none focus:ring-2 focus:ring-sky-400/40",
+          "dropdown-trigger flex w-full items-center justify-between text-left text-white focus:outline-none",
         )}
       >
         <span className="flex items-center gap-3">
@@ -102,7 +102,7 @@ export function InlineDropdown({
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.15 }}
             className={cn(
-              "absolute left-0 right-0 top-[calc(100%+0.5rem)] z-20 overflow-hidden rounded-2xl border border-white/10 bg-[#050817]/95 shadow-2xl backdrop-blur",
+              "dropdown-menu absolute left-0 right-0 top-[calc(100%+0.5rem)] z-20 overflow-hidden",
               menuClassName,
             )}
           >
@@ -117,8 +117,8 @@ export function InlineDropdown({
                     setOpen(false);
                   }}
                   className={cn(
-                    "flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-white/75 transition hover:bg-white/10",
-                    active && "bg-white/10 text-white font-semibold",
+                    "dropdown-option flex w-full items-center gap-3 text-left text-sm text-white/75",
+                    active && "active text-white font-semibold",
                   )}
                 >
                   {option.icon && (
