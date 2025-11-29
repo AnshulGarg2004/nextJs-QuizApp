@@ -120,7 +120,6 @@ export default function QuizApp() {
   const [hintDisabled, setHintDisabled] = useState(false);
   const [hintsUsed, setHintsUsed] = useState(0);
   const [score, setScore] = useState(0);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [toast, setToast] = useState({ message: "", visible: false });
   const [resultsMeta, setResultsMeta] = useState<PerformanceMeta>(defaultMeta);
   const [containerEffect, setContainerEffect] = useState("");
@@ -193,23 +192,7 @@ export default function QuizApp() {
     }
   }, [currentQuestions, hintsUsed, showToast, userAnswers]);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const storedTheme = window.localStorage.getItem("quiz-theme");
-    if (storedTheme === "dark" || storedTheme === "light") {
-      setTheme(storedTheme);
-    }
-  }, []);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (theme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-    window.localStorage.setItem("quiz-theme", theme);
-  }, [theme]);
 
   useEffect(() => {
     if (screen !== "quiz" || !currentQuestions.length) {
@@ -279,13 +262,7 @@ export default function QuizApp() {
     };
   }, []);
 
-  const handleThemeToggle = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    const emoji = newTheme === "dark" ? "🌙" : "☀️";
-    const name = newTheme === "dark" ? "Dark" : "Light";
-    showToast(`${emoji} Switched to ${name} theme!`, 2000);
-  };
+
 
   const handleStartQuiz = () => {
     const questions = buildQuestionSet(category, difficulty);
@@ -366,9 +343,7 @@ export default function QuizApp() {
         <div className="glow-orb orb-1" />
         <div className="glow-orb orb-2" />
         <div className="glow-orb orb-3" />
-        <div className="pulse-ring ring-1" />
-        <div className="pulse-ring ring-2" />
-        <div className="pulse-ring ring-3" />
+       
       </div>
 
       <div className="particle-field">
@@ -430,14 +405,6 @@ export default function QuizApp() {
                   <p className="panel-subtitle">Game plan</p>
                   <h3>Configure your challenge</h3>
                 </div>
-                <button className="theme-puck" aria-label="Toggle theme" onClick={handleThemeToggle}>
-                  <span className="theme-icon sun">
-                    <i className="fas fa-sun" />
-                  </span>
-                  <span className="theme-icon moon">
-                    <i className="fas fa-moon" />
-                  </span>
-                </button>
               </div>
 
               <div className="grid gap-5 md:grid-cols-2">
@@ -682,18 +649,18 @@ export default function QuizApp() {
 
               <div className="result-stats futuristic">
                 <div className="stat-item correct">
-                  <i className="fas fa-check-circle " />
+                  <i className="fas fa-check" />
                   <span>{score} Correct</span>
                 </div>
                 <div className="stat-item incorrect">
-                  <i className="fas fa-times-circle" />
+                  <i className="fas fa-times" />
                   <span>
                     {(currentQuestions.length || 0) - score - unansweredCount} Incorrect
                   </span>
                 </div>
                 {unansweredCount > 0 && (
                   <div className="stat-item unanswered">
-                    <i className="fas fa-question-circle " />
+                    <i className="fas fa-question" />
                     <span>{unansweredCount} Unanswered</span>
                   </div>
                 )}
@@ -768,15 +735,15 @@ export default function QuizApp() {
                       <span className="review-status">
                         {isCorrect ? (
                           <>
-                            <i className="fas fa-check-circle" /> Correct
+                            <i className="fas fa-check" /> Correct
                           </>
                         ) : wasAnswered ? (
                           <>
-                            <i className="fas fa-times-circle" /> Incorrect
+                            <i className="fas fa-times" /> Incorrect
                           </>
                         ) : (
                           <>
-                            <i className="fas fa-question-circle" /> Unanswered
+                            <i className="fas fa-question" /> Unanswered
                           </>
                         )}
                       </span>

@@ -65,6 +65,7 @@ body {
     var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  backdrop-filter: blur(2px);
 }
 
 .animated-backdrop,
@@ -218,11 +219,11 @@ body {
 }
 
 .glass-panel {
-  background: var(--glass);
+  background: rgba(15, 18, 42, 0.9);
   border: 1px solid var(--border);
   border-radius: 28px;
   padding: 32px;
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(80px);
   box-shadow: var(--shadow);
   position: relative;
   overflow: hidden;
@@ -870,20 +871,23 @@ body {
 }
 
 .stat-item i {
-    margin-right: 8px; 
+    margin-right: 8px;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .score-circle.neon-ring {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: rgba(124, 93, 255, 0.15);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 8px 32px rgba(124, 93, 255, 0.2);
+  box-shadow: none;
 }
 
 .score-circle.neon-ring span:first-child {
